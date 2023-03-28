@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+ll comp(pair<ll,ll>a,pair<ll,ll>b){
+    if(a.second!=b.second)return a.second<b.second;
+    else return a.first<b.first;
+}
+int main () {
+    ll n;cin>>n;
+    pair<ll,ll>a[n];
+    for(ll i=0;i<n;i++){
+        cin>>a[i].first>>a[i].second;
+    }
+    ll ans=0,start=0,end=0;
+    sort(a,a+n,comp);
+    for(ll i=0;i<n;i++){
+        if(a[i].first>end){
+            ans++;
+            end=a[i].second;
+        }
+    }
+    cout<<ans;
+}
