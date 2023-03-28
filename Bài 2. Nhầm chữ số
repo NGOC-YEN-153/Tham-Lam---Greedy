@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main () {
+    string a,b;cin>>a>>b;
+    for(ll i=0;i<a.size();i++){
+        if(a[i]=='6')a[i]='5';
+    }
+    for(ll i=0;i<b.size();i++){
+        if(b[i]=='6')b[i]='5';
+    }
+    ll x,y;
+    x=stoll(a);
+    y=stoll(b);
+    for(ll i=0;i<a.size();i++){
+        if(a[i]=='5')a[i]='6';
+    }
+    for(ll i=0;i<b.size();i++){
+        if(b[i]=='5')b[i]='6';
+    }
+    ll z=stoll(a),t=stoll(b);
+    cout<<z+t<<" "<<x+y;
+}
