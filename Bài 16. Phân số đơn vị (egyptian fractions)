@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+vector<string>v;
+int main(){
+    ll p,q;cin>>p>>q;
+    while(p>0){
+        if(p>=q){
+            while(p>=q){
+                v.push_back("1/1");p-=q;
+            }
+            p%=q;
+        }
+        else if(q%p==0){
+            string s;s+="1/";
+            s+=(to_string(q/p));
+            v.push_back(s);
+            break;
+        }
+        else {
+            string s="1/";
+            int x=q/p+1;
+            s+=to_string(x);
+            v.push_back(s);
+    //        p/q  1/x
+            p=p*x-q;
+            q*=x;
+        }
+    }
+    for(int i=0;i<v.size()-1;i++)cout<<v[i]<<" + ";
+    cout<<v[v.size()-1];
+}
