@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main () {
+   ll n,s,m;cin>>n>>s>>m;
+   ll ngay=s-s/7;
+   if(ngay*n <s*m)cout<<-1;
+   else {
+       ll need=s*m;
+    ll tmp=(need+n-1)/n*n;
+    cout<<tmp/n;
+   }
+}
