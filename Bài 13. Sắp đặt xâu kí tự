@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main () {
+    string s;getline(cin,s);
+    map<char,ll>mp;
+    for(ll i=0;i<s.size();i++)mp[s[i]]++;
+    ll maxx=0;
+    ll rest=0;
+    multiset<ll>se;
+    for(auto x:mp)se.insert(x.second);
+    for(auto x:se)rest+=x;
+    rest-=*(--se.end());
+    maxx=*(--se.end());
+    if(maxx-rest>=2 )cout<<"NO";
+    else cout<<"YES";
+}
