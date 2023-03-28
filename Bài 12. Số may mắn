@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main () {
+    ll n;cin>>n;
+//    a.4 +b.7=n;
+    for(ll i=n/7;i>=0;i--){
+        if((n-7*i)%4==0){
+            ll t=(n-7*i)/4,y=i;
+            while(t--)cout<<4;
+            while(i--)cout<<7;
+            return 0;
+        }
+    }
+    cout<<-1;
+}
