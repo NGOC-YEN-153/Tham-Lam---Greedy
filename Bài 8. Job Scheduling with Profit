@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+struct sv{
+    ll deadline,profit,id;
+};
+ll comp(sv a, sv b){
+    if(a.deadline != b.deadline)return a.deadline < b.deadline;
+    else return a.profit > b.profit;
+}
+int main () {
+    ll n;cin>>n;
+    sv a[n];
+    multiset<ll>se;
+    for(ll i=0;i < n;i++){
+        cin >> a[i].id >> a[i].deadline >> a[i].profit;
+    }
+    ll ans = 0,time = 0;
+    sort(a,a + n,comp);
+    for(ll i = 0;i < n;i++){
+        if(a[i].deadline > time){
+            ans += a[i].profit;
+            time++;
+            se.insert(a[i].profit);
+        }
+        else {
+            if(a[i].profit > *(se.begin())){
+                ans = ans - *(se.begin()) + a[i].profit;
+                se.erase( se.begin() );
+                se.insert( a[i].profit );
+            }
+        }
+    }
+    cout << ans;
+}
