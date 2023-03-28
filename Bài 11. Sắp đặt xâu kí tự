@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+ll mod=1e9+7;
+int main () {
+    ll k;cin>>k;cin.ignore();
+    string s;getline(cin,s);
+    map<char,ll>mp;
+    for(ll i=0;i<s.size();i++){
+        mp[s[i]]++;
+    }
+    multiset<ll>se;
+    for(auto x:mp)se.insert(x.second);
+    ll ans=0;
+    while(k--){
+        if(!se.size())break;
+        ll tmp=*(--se.end());tmp--;
+        se.erase(--se.end());
+        if(tmp>0)se.insert(tmp);
+    }
+    for(auto x:se)ans+=x*x;
+    cout<<ans;
+}
